@@ -25,7 +25,7 @@ private:
     priority_queue<Action> actions;
 
     void prepareCombat();
-    Character* getTarget(Character* target);
+//    Character* getTarget(Character* target);
 public:
     Combat(vector<Character*> _participants);
     Combat(vector<Player*> _teamMembers, vector<Enemy*> _enemies);

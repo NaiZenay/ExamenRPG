@@ -5,6 +5,8 @@
 #ifndef RPG_ACTION_H
 #define RPG_ACTION_H
 
+#include <functional>
+
 struct Action {
     int speed = 0;
     std::function<void(void)> action = nullptr;

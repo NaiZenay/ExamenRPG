@@ -6,6 +6,8 @@
 #define RPG_CHARACTER_H
 #include<string>
 #include "../Combat/Action.h"
+#include "memory"
+#include "vector"
 
 using namespace std;
 
@@ -23,7 +25,6 @@ public:
 
     virtual void doAttack(Character *target) = 0;
     virtual void takeDamage(int damage) = 0;
-    virtual Action takeAction(vector<std::shared_ptr<Character>> possibleTargets) = 0;
 
     void setName(string);
     string getName();

@@ -39,7 +39,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "rpg::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-rpg-Debug-ade93e2cd06e9ef7f33c.json",
+					"jsonFile" : "target-rpg-Debug-32b653a38fa6a519efac.json",
 					"name" : "rpg",
 					"projectIndex" : 0
 				}
@@ -49,8 +49,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "/Users/vnavarro/ceti/POO-2O/rpg/cmake-build-debug",
-		"source" : "/Users/vnavarro/ceti/POO-2O/rpg"
+		"build" : "/home/ian/Documents/Uni/POO/2O-rpg-example/cmake-build-debug",
+		"source" : "/home/ian/Documents/Uni/POO/2O-rpg-example"
 	},
 	"version" : 
 	{
