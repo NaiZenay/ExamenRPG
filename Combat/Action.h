@@ -6,8 +6,12 @@
 #define RPG_ACTION_H
 
 #include <functional>
+#include "../Character/Character.h"
+
+class Character;
 
 struct Action {
+    Character*target= nullptr;
     int speed = 0;
     std::function<void(void)> action = nullptr;
 
@@ -15,10 +19,12 @@ struct Action {
         action = _action;
         speed = _speed;
     }
-    Action(){};
 
-    bool operator<(const Action& p) const
-    {
+
+
+    Action() {};
+
+    bool operator<(const Action &p) const {
         return this->speed < p.speed;
     }
 };
