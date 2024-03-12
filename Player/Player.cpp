@@ -26,11 +26,16 @@ void Player::doAttack(Character *target) {
     target->takeDamage(trueDamage);
 }
 
+void Player:: die(){
+    cout<<"You die"<<endl;
+    this->dead=true;
+}
+
 void Player::takeDamage(int damage) {
     setHealth(health - damage);
 
     if(health <= 0) {
-        cout<<"You have died"<<endl;
+        die();
     }
     else {
         cout<<"You have taken " << damage << " damage" << endl;
@@ -89,7 +94,7 @@ Action Player::takeAction(vector<Enemy*>enemies) {
     int option = 0;
     cout<<"Choose an action"<<endl;
     cout<<"1. Attack"<<endl;
-//    cout<<"2. Flee"<<endl;
+    cout<<"2. Flee"<<endl;
     cin >> option;
     Character* target = nullptr;
 
@@ -106,6 +111,12 @@ Action Player::takeAction(vector<Enemy*>enemies) {
             //1.
             myAction.action = [this, target](){
                 doAttack(target);
+            };
+            break;
+
+        case 2:
+            myAction.action = [this, target, &enemies](){
+                flee(enemies);
             };
             break;
         default:

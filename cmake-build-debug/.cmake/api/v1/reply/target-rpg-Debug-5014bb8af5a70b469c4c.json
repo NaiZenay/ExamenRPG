@@ -2,7 +2,10 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "rpg"
+			"path" : "rpg.exe"
+		},
+		{
+			"path" : "rpg.pdb"
 		}
 	],
 	"backtrace" : 1,
@@ -69,12 +72,16 @@
 			{
 				"fragment" : "",
 				"role" : "flags"
+			},
+			{
+				"fragment" : "-lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32",
+				"role" : "libraries"
 			}
 		],
 		"language" : "CXX"
 	},
 	"name" : "rpg",
-	"nameOnDisk" : "rpg",
+	"nameOnDisk" : "rpg.exe",
 	"paths" : 
 	{
 		"build" : ".",

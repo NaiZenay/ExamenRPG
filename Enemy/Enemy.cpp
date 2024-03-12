@@ -15,6 +15,14 @@ int getRolledAttack(int attack) {
     return (rand() % (attack - lowerLimit)) + lowerLimit;
 }
 
+int Enemy::getDamage(){
+    return this->damage;
+}
+
+void Enemy::setDamage(int damage) {
+    this->damage+=damage;
+}
+
 Enemy::Enemy(string name, int health, int attack, int defense, int speed) : Character(name, health, attack, defense, speed, false) {
 }
 
@@ -24,10 +32,17 @@ void Enemy::doAttack(Character *target) {
     target->takeDamage(trueDamage);
 }
 
+void Enemy::die() {
+    cout<<"You die"<<endl;
+    this->dead= true;
+}
+
 void Enemy::takeDamage(int damage) {
-    setHealth(getHealth() - damage);
-    if(getHealth() <= 0) {
-        cout<<getName()<<" has died"<<endl;
+    setDamage(damage);
+    if (this->getDamage()== this->getHealth()*0.15){
+//        flee();TODO
+    }else if(this->getDamage() >= this->getHealth()) {
+        die();
     }
     else {
         cout<<getName()<<" has taken " << damage << " damage" << endl;
@@ -57,5 +72,25 @@ Action Enemy::takeAction(vector<Player *> player) {
     };
 
     return myAction;
+}
+static bool compareSpeed(Player *a, Player *b) {
+    return a->getSpeed() > b->getSpeed();
+}
+
+
+bool Enemy::flee(vector<Player*> players) {
+    std::sort(players.begin(), players.end(), compareSpeed);
+    Player* fastestPlayer = players[0];
+    bool fleed = false;
+    if(this->getSpeed() > fastestPlayer->getSpeed()) {
+        fleed =  true;
+    }else {
+        srand(time(NULL));
+        int chance = rand() % 100;
+        cout<< "chance: " << chance << endl;
+        fleed = chance > 99;
+    }
+
+    return fleed;
 }
 
