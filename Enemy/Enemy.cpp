@@ -15,15 +15,16 @@ int getRolledAttack(int attack) {
     return (rand() % (attack - lowerLimit)) + lowerLimit;
 }
 
-int Enemy::getDamage(){
+int Enemy::getDamage() {
     return this->damage;
 }
 
 void Enemy::setDamage(int damage) {
-    this->damage+=damage;
+    this->damage += damage;
 }
 
-Enemy::Enemy(string name, int health, int attack, int defense, int speed) : Character(name, health, attack, defense, speed, false) {
+Enemy::Enemy(string name, int health, int attack, int defense, int speed) : Character(name, health, attack, defense,
+                                                                                      speed, false) {
 }
 
 void Enemy::doAttack(Character *target) {
@@ -33,28 +34,27 @@ void Enemy::doAttack(Character *target) {
 }
 
 void Enemy::die() {
-    cout<<"You die"<<endl;
-    this->dead= true;
+    cout << "You die" << endl;
+    this->dead = true;
 }
 
 void Enemy::takeDamage(int damage) {
     setDamage(damage);
-    if (this->getDamage()== this->getHealth()*0.15){
+    if (this->getDamage() == this->getHealth() * 0.15) {
 //        flee();TODO
-    }else if(this->getDamage() >= this->getHealth()) {
+    } else if (this->getDamage() >= this->getHealth()) {
         die();
-    }
-    else {
-        cout<<getName()<<" has taken " << damage << " damage" << endl;
+    } else {
+        cout << getName() << " has taken " << damage << " damage" << endl;
     }
 }
 
-Character* Enemy::getTarget(vector<Player *> teamMembers) {
+Character *Enemy::getTarget(vector<Player *> teamMembers) {
     // Obtiene el miembro del equipo con menos vida
     int targetIndex = 0;
     int lowestHealth = INT_MAX;
-    for(int i=0; i < teamMembers.size(); i++) {
-        if(teamMembers[i]->getHealth() < lowestHealth) {
+    for (int i = 0; i < teamMembers.size(); i++) {
+        if (teamMembers[i]->getHealth() < lowestHealth) {
             lowestHealth = teamMembers[i]->getHealth();
             targetIndex = i;
         }
@@ -66,28 +66,37 @@ Character* Enemy::getTarget(vector<Player *> teamMembers) {
 Action Enemy::takeAction(vector<Player *> player) {
     Action myAction;
     myAction.speed = getSpeed();
-    Character* target = getTarget(player);
-    myAction.action = [this, target]() {
-        doAttack(target);
-    };
+    Character *target = getTarget(player);
+    myAction.source = this;
+    myAction.target = target;
 
+    if (this->getDamage()<=this->getHealth()*0.15){
+        myAction.action = [this, &player]() {
+            flee(player);
+        };
+    } else{
+        myAction.action = [this, target]() {
+            doAttack(target);
+        };
+    }
     return myAction;
 }
+
 static bool compareSpeed(Player *a, Player *b) {
     return a->getSpeed() > b->getSpeed();
 }
 
 
-bool Enemy::flee(vector<Player*> players) {
+bool Enemy::flee(vector<Player *> players) {
     std::sort(players.begin(), players.end(), compareSpeed);
-    Player* fastestPlayer = players[0];
+    Player *fastestPlayer = players[0];
     bool fleed = false;
-    if(this->getSpeed() > fastestPlayer->getSpeed()) {
-        fleed =  true;
-    }else {
+    if (this->getSpeed() > fastestPlayer->getSpeed()) {
+        fleed = true;
+    } else {
         srand(time(NULL));
         int chance = rand() % 100;
-        cout<< "chance: " << chance << endl;
+        cout << "chance: " << chance << endl;
         fleed = chance > 99;
     }
 
