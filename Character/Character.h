@@ -58,6 +58,10 @@ public:
     bool isDead();
 
     bool isCoward();
+
+    void setDead(bool dead);
+
+    void setCoward(bool coward);
 };
 
 

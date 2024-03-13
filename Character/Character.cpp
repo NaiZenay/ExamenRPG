@@ -67,3 +67,11 @@ bool Character::isDead(){
 bool Character::isCoward(){
     return coward;
 }
+
+void Character::setDead(bool dead) {
+    Character::dead = dead;
+}
+
+void Character::setCoward(bool coward) {
+    Character::coward = coward;
+}
