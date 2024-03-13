@@ -70,7 +70,7 @@ Action Enemy::takeAction(vector<Player *> player) {
     myAction.target = target;
 
     if (this->getHealth() - this->getDamage() <= this->getHealth() * 0.15) {
-        myAction.action = [this, &player]() {
+        myAction.action = [this, player]() {
             flee(player);
         };
     } else {
