@@ -12,6 +12,7 @@ class Character;
 
 struct Action {
     Character*target= nullptr;
+    Character*source= nullptr;
     int speed = 0;
     std::function<void(void)> action = nullptr;
 
