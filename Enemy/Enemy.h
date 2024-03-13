@@ -30,7 +30,7 @@ public:
 
     void die() override;
 
-    bool flee(vector<Player *> players);
+    void flee(vector<Player *> players);
 
     Character *getTarget(vector<Player *> teamMembers);
 
