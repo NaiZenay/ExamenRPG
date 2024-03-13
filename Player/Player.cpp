@@ -54,7 +54,12 @@ void Player::flee(vector<Enemy *> enemies) {
         fleed = chance > 99;
     }
 
-    this->setCoward(fleed);
+    //Aqui termina el programa
+    if (!fleed){
+        cout<<"U didnt flee"<<endl;
+    }else{
+        this->setCoward(fleed);
+    }
 }
 
 void Player::emote() {

@@ -6,10 +6,13 @@
 
 using namespace std;
 
+//Jugador no huye cuando es mas lento q los enemigos(el programa termina)
+
+
 int main() {
-    Player *player = new Player("Victor", 20, 10000000, 9999, 1);
+    Player *player = new Player("Victor", 2000000, 95, 0, 1);
     Enemy *enemy = new Enemy("Goblin", 20, 5, 0, 7);
-    Enemy *enemy2 = new Enemy("Orc", 30, 8, 1, 2);
+    Enemy *enemy2 = new Enemy("Orc", 100, 8, 0, 2);
 
     vector<Character*> participants;
     participants.push_back(player);

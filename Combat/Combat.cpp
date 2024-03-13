@@ -113,8 +113,8 @@ void Combat::checkParticipantStatus(Character *participant) {
 }
 
 void Combat::checkForFlee(Character *character) {
-    bool fleed = character->isCoward();
-    if(fleed) {
+    if(character->isCoward()) {
+        cout<<character->getName()<<" is a Coward"<<endl;
         if(character->getIsPlayer()) {
             cout<<"You have fled the combat"<<endl;
             teamMembers.erase(remove(teamMembers.begin(), teamMembers.end(), character), teamMembers.end());

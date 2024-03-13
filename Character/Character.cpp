@@ -53,27 +53,28 @@ int Character::getSpeed() {
 }
 
 string Character::toString() {
-    return "Name: " + name + "\nHealth: " + to_string(health) + "\nAttack: " + to_string(attack) + "\nDefense: " + to_string(defense) + "\nSpeed: " + to_string(speed);
+    return "Name: " + name + "\nHealth: " + to_string(health) + "\nAttack: " + to_string(attack) + "\nDefense: " +
+           to_string(defense) + "\nSpeed: " + to_string(speed);
 }
 
 bool Character::getIsPlayer() {
     return isPlayer;
 }
 
-bool Character::isDead(){
+bool Character::isDead() {
     return dead;
 }
 
-bool Character::isCoward(){
+bool Character::isCoward() {
     return coward;
 }
 
 void Character::setDead(bool dead) {
-    Character::dead = dead;
+    this->dead = dead;
 }
 
-void Character::setCoward(bool coward) {
-    Character::coward = coward;
+void Character::setCoward(bool _coward) {
+    this->coward = _coward;
 }
 
 int Character::getDamage() {

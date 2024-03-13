@@ -21,7 +21,7 @@ protected:
     int speed;
     bool isPlayer;
     bool dead;
-    bool coward;
+    bool coward=false;
     int damage=0;
 public:
     Character(string, int, int, int, int, bool);
@@ -62,7 +62,7 @@ public:
 
     void setDead(bool dead);
 
-    void setCoward(bool coward);
+    void setCoward(bool _coward);
 
     int getDamage();
 
