@@ -22,6 +22,7 @@ protected:
     bool isPlayer;
     bool dead;
     bool coward;
+    int damage=0;
 public:
     Character(string, int, int, int, int, bool);
 
@@ -62,6 +63,10 @@ public:
     void setDead(bool dead);
 
     void setCoward(bool coward);
+
+    int getDamage();
+
+    void setDamage(int damage);
 };
 
 

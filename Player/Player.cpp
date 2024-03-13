@@ -33,12 +33,11 @@ void Player::die() {
 }
 
 void Player::takeDamage(int damage) {
-    setHealth(health - damage);
+    setDamage(damage);
+    cout << getName() << " has taken " << damage << " damage" << endl;
 
-    if (health <= 0) {
+    if (this->getDamage() >= this->getHealth()) {
         die();
-    } else {
-        cout << "You have taken " << damage << " damage" << endl;
     }
 }
 
@@ -126,3 +125,4 @@ Action Player::takeAction(vector<Enemy *> enemies) {
 
     return myAction;
 }
+

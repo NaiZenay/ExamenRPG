@@ -75,3 +75,11 @@ void Character::setDead(bool dead) {
 void Character::setCoward(bool coward) {
     Character::coward = coward;
 }
+
+int Character::getDamage() {
+    return this->damage;
+}
+
+void Character::setDamage(int damage) {
+    this->damage += damage;
+}

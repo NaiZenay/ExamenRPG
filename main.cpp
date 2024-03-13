@@ -7,21 +7,21 @@
 using namespace std;
 
 int main() {
-    Player *player = new Player("Victor", 20, 100, 3, 1);
-    Enemy *enemy = new Enemy("Goblin", 20, 5, 3, 7);
-//    Enemy *enemy2 = new Enemy("Orc", 30, 8, 1, 2);
+    Player *player = new Player("Victor", 20, 10000000, 9999, 1);
+    Enemy *enemy = new Enemy("Goblin", 20, 5, 0, 7);
+    Enemy *enemy2 = new Enemy("Orc", 30, 8, 1, 2);
 
     vector<Character*> participants;
     participants.push_back(player);
     participants.push_back(enemy);
-//    participants.push_back(enemy2);
+    participants.push_back(enemy2);
 
     Combat* combat = new Combat(participants);
     combat->doCombat();
 
     delete player;
     delete enemy;
-//    delete enemy2;
+    delete enemy2;
     delete combat;
 
     return 0;

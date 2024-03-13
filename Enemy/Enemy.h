@@ -14,15 +14,11 @@ struct Action;
 class Player;
 
 class Enemy : public Character {
-    int damage = 0;
+
 public:
     Enemy(string, int, int, int, int);
 
 public:
-    int getDamage();
-
-public:
-    void setDamage(int damage);
 
     void doAttack(Character *target) override;
 

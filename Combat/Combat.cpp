@@ -101,7 +101,7 @@ void Combat::executeActions() {
 }
 
 void Combat::checkParticipantStatus(Character *participant) {
-    if(participant->getHealth() <= 0) {
+    if(participant->isDead()) {
         if(participant->getIsPlayer()) {
             teamMembers.erase(remove(teamMembers.begin(), teamMembers.end(), participant), teamMembers.end());
         }

@@ -159,6 +159,7 @@ CMakeFiles/rpg.dir/Character/Character.cpp.obj: C:/Users/Ian/Documents/Uni/Exame
   C:/Program\ Files/JetBrains/CLion\ 2023.3.3/bin/mingw/x86_64-w64-mingw32/include/time.h \
   C:/Program\ Files/JetBrains/CLion\ 2023.3.3/bin/mingw/x86_64-w64-mingw32/include/vadefs.h \
   C:/Program\ Files/JetBrains/CLion\ 2023.3.3/bin/mingw/x86_64-w64-mingw32/include/wchar.h \
+  C:/Users/Ian/Documents/Uni/ExamenRPG/Character/Character.h \
   C:/Users/Ian/Documents/Uni/ExamenRPG/Combat/Action.h \
   C:/Users/Ian/Documents/Uni/ExamenRPG/Character/Character.h
 
@@ -1267,9 +1268,9 @@ C:/Program\ Files/JetBrains/CLion\ 2023.3.3/bin/mingw/x86_64-w64-mingw32/include
 
 C:/Program\ Files/JetBrains/CLion\ 2023.3.3/bin/mingw/x86_64-w64-mingw32/include/wchar.h:
 
-C:/Users/Ian/Documents/Uni/ExamenRPG/Combat/Action.h:
-
 C:/Users/Ian/Documents/Uni/ExamenRPG/Character/Character.h:
+
+C:/Users/Ian/Documents/Uni/ExamenRPG/Combat/Action.h:
 
 C:/Users/Ian/Documents/Uni/ExamenRPG/Combat/Combat.cpp:
 

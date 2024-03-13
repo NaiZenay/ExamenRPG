@@ -13,6 +13,8 @@ struct Action;
 class Enemy;
 
 class Player: public Character {
+private:
+    int damage=0;
 protected:
     int experience;
     int level;

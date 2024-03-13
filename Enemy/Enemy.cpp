@@ -15,14 +15,6 @@ int getRolledAttack(int attack) {
     return (rand() % (attack - lowerLimit)) + lowerLimit;
 }
 
-int Enemy::getDamage() {
-    return this->damage;
-}
-
-void Enemy::setDamage(int damage) {
-    this->damage += damage;
-}
-
 Enemy::Enemy(string name, int health, int attack, int defense, int speed) : Character(name, health, attack, defense,
                                                                                       speed, false) {
 }
@@ -39,7 +31,7 @@ void Enemy::die() {
 }
 
 void Enemy::takeDamage(int damage) {
-    setDamage(damage);
+    this->setDamage(damage);
     cout << getName() << " has taken " << damage << " damage" << endl;
 
     if (this->getDamage() >= this->getHealth()) {
