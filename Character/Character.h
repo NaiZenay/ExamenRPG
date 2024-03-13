@@ -20,9 +20,8 @@ protected:
     int defense;
     int speed;
     bool isPlayer;
-public:
     bool dead;
-
+    bool coward;
 public:
     Character(string, int, int, int, int, bool);
 
@@ -55,6 +54,10 @@ public:
     string toString();
 
     bool getIsPlayer();
+
+    bool isDead();
+
+    bool isCoward();
 };
 
 

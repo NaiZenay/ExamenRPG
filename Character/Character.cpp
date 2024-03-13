@@ -59,3 +59,11 @@ string Character::toString() {
 bool Character::getIsPlayer() {
     return isPlayer;
 }
+
+bool Character::isDead(){
+    return dead;
+}
+
+bool Character::isCoward(){
+    return coward;
+}
