@@ -28,7 +28,7 @@ void Player::doAttack(Character *target) {
 }
 
 void Player::die() {
-    cout << "You die" << endl;
+    cout << this->getName()<<" die" << endl;
     this->dead = true;
 }
 
@@ -42,7 +42,7 @@ void Player::takeDamage(int damage) {
     }
 }
 
-bool Player::flee(vector<Enemy *> enemies) {
+void Player::flee(vector<Enemy *> enemies) {
     std::sort(enemies.begin(), enemies.end(), compareSpeed);
     Enemy *fastestEnemy = enemies[0];
     bool fleed = false;
@@ -55,7 +55,7 @@ bool Player::flee(vector<Enemy *> enemies) {
         fleed = chance > 99;
     }
 
-    return fleed;
+    this->setCoward(fleed);
 }
 
 void Player::emote() {
@@ -109,14 +109,13 @@ Action Player::takeAction(vector<Enemy *> enemies) {
         case 1:
             target = getTarget(enemies);
             myAction.target = target;
-            //1.
             myAction.action = [this, target]() {
                 doAttack(target);
             };
             break;
 
         case 2:
-            myAction.action = [this,&enemies]() {
+            myAction.action = [this,enemies]() {
                 flee(enemies);
             };
             break;

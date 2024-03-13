@@ -23,7 +23,7 @@ public:
     void die() override;
     Character* getTarget(vector<Enemy*> enemies);
 
-    bool flee(vector<Enemy*> enemies);
+    void flee(vector<Enemy*> enemies);
     void emote();
     void levelUp();
     void gainExperience(int);
