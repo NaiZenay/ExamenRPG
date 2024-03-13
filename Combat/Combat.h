@@ -31,6 +31,7 @@ private:
 
     void checkParticipantStatus(Character* participant);
     void checkForFlee(Character* character);
+    void checkWinner();
 public:
     Combat(vector<Character*> _participants);
     Combat(vector<Player*> _teamMembers, vector<Enemy*> _enemies);

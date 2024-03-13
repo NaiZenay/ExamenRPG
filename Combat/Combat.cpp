@@ -49,16 +49,24 @@ void Combat::doCombat() {
 
     //Este while es 1 iteracion por ronda
     while (enemies.size() != 0 && teamMembers.size() != 0) {
-
-
         registerActions();
         executeActions();
     }
+    checkWinner();
+}
 
+void Combat::checkWinner() {
     //No se imprime el nombre del ganador
+    cout <<"\nThe Winner is:\n"<<endl;
     if (enemies.size() == 0) {
-        cout << "You have won the combat" << endl;
+        for (auto teamMember: teamMembers) {
+            cout << teamMember->toString() << endl;
+            teamMember->emote();
+        }
     } else {
+        for (auto enemy: enemies) {
+            cout <<enemy->toString() << endl;
+        }
         cout << "The enemies have won the combat - Game Over" << endl;
     }
 }
@@ -101,11 +109,10 @@ void Combat::executeActions() {
 }
 
 void Combat::checkParticipantStatus(Character *participant) {
-    if(participant->isDead()) {
-        if(participant->getIsPlayer()) {
+    if (participant->isDead()) {
+        if (participant->getIsPlayer()) {
             teamMembers.erase(remove(teamMembers.begin(), teamMembers.end(), participant), teamMembers.end());
-        }
-        else {
+        } else {
             enemies.erase(remove(enemies.begin(), enemies.end(), participant), enemies.end());
         }
         participants.erase(remove(participants.begin(), participants.end(), participant), participants.end());
@@ -113,14 +120,13 @@ void Combat::checkParticipantStatus(Character *participant) {
 }
 
 void Combat::checkForFlee(Character *character) {
-    if(character->isCoward()) {
-        cout<<character->getName()<<" is a Coward"<<endl;
-        if(character->getIsPlayer()) {
-            cout<<"You have fled the combat"<<endl;
+    if (character->isCoward()) {
+        cout << character->getName() << " is a Coward" << endl;
+        if (character->getIsPlayer()) {
+            cout << "You have fled the combat" << endl;
             teamMembers.erase(remove(teamMembers.begin(), teamMembers.end(), character), teamMembers.end());
-        }
-        else {
-            cout<<character->getName()<<" has fled the combat"<<endl;
+        } else {
+            cout << character->getName() << " has fled the combat" << endl;
             enemies.erase(remove(enemies.begin(), enemies.end(), character), enemies.end());
         }
         participants.erase(remove(participants.begin(), participants.end(), character), participants.end());

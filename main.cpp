@@ -10,7 +10,7 @@ using namespace std;
 
 
 int main() {
-    Player *player = new Player("Victor", 2000000, 95, 0, 1);
+    Player *player = new Player("Victor", 1, 1, 0, 1);
     Enemy *enemy = new Enemy("Goblin", 20, 5, 0, 7);
     Enemy *enemy2 = new Enemy("Orc", 100, 8, 0, 2);
 

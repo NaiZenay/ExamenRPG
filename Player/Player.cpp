@@ -48,7 +48,7 @@ void Player::flee(vector<Enemy *> enemies) {
     if (this->getSpeed() > fastestEnemy->getSpeed()) {
         fleed = true;
     } else {
-        srand(time(NULL));
+        srand(time(nullptr));
         int chance = rand() % 100;
         cout << "chance: " << chance << endl;
         fleed = chance > 99;
@@ -63,7 +63,7 @@ void Player::flee(vector<Enemy *> enemies) {
 }
 
 void Player::emote() {
-    cout << "Jokes on you" << endl;
+    cout << this->getName()<<" Jokes on you" << endl;
 }
 
 void Player::levelUp() {
