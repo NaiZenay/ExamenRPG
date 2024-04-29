@@ -15,7 +15,7 @@ int getRolledAttack(int attack) {
     return (rand() % (attack - lowerLimit)) + lowerLimit;
 }
 
-Enemy::Enemy(string name, int health, int attack, int defense, int speed) : Character(name, health, attack, defense,
+Enemy::Enemy(const char * name, int health, int attack, int defense, int speed) : Character(name, health, attack, defense,
                                                                                       speed, false) {
 }
 

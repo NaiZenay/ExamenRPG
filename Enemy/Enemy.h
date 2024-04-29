@@ -16,7 +16,7 @@ class Player;
 class Enemy : public Character {
 
 public:
-    Enemy(string, int, int, int, int);
+    Enemy(const char *, int, int, int, int);
 
 public:
 
