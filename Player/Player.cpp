@@ -7,6 +7,7 @@
 #include "vector"
 #include "algorithm"
 #include "memory"
+#include <cstring>
 
 using namespace std;
 using namespace combat_utils;
@@ -19,6 +20,10 @@ Player::Player(const char * name, int health, int attack, int defense, int speed
                                                                                         speed, true) {
     experience = 0;
     level = 1;
+}
+Player::Player(const char * name, int health, int attack, int defense, int speed,bool isPlayer,int _exp,int _level) : Character(name, health, attack, defense,speed, true) {
+    experience = _exp;
+    level = _level;
 }
 
 void Player::doAttack(Character *target) {
@@ -101,11 +106,7 @@ Action Player::takeAction(vector<Enemy *> enemies) {
     cin >> option;
     Character *target = nullptr;
 
-    //Esta variable guarda
-    //1. Que voy a hacer?
-    //2. Con que velocidad/prioridad?
     Action myAction;
-    //2.
     myAction.speed = this->getSpeed();
     myAction.source = this;
 
@@ -130,4 +131,63 @@ Action Player::takeAction(vector<Enemy *> enemies) {
 
     return myAction;
 }
+
+char *Player::serialize() {
+    char* iterator=buffer;
+    memcpy(iterator,&name, sizeof name);
+    iterator += sizeof name;
+    memcpy(iterator, &health, sizeof health);
+    iterator += sizeof health;
+    memcpy(iterator,&attack, sizeof attack);
+    iterator += sizeof attack;
+    memcpy(iterator, &defense, sizeof defense);
+    iterator += sizeof defense;
+    memcpy(iterator,&speed, sizeof speed);
+    iterator += sizeof speed;
+    memcpy(iterator, &isPlayer, sizeof isPlayer);
+    iterator += sizeof isPlayer;
+    memcpy(iterator,&dead, sizeof dead);
+    iterator += sizeof dead;
+    memcpy(iterator, &experience, sizeof experience);
+    iterator += sizeof experience;
+    memcpy(iterator,&level, sizeof level);
+    iterator += sizeof level;
+
+}
+
+Player *Player::unserialize(char *_buffer) {
+    char* _iterator =_buffer;
+    char _name[20];
+    int _health;
+    int _attack;
+    int _defense;
+    int _speed;
+    bool _isPlayer;
+    bool _dead;
+    int _experience;
+    int _level;
+
+    memcpy(&_name, _iterator, sizeof _name);
+    _iterator += sizeof _name;
+    memcpy(&_health, _iterator, sizeof _health);
+    _iterator += sizeof _health;
+    memcpy(&_attack, _iterator, sizeof _attack);
+    _iterator += sizeof _attack;
+    memcpy(&_defense, _iterator, sizeof _defense);
+    _iterator += sizeof _defense;
+    memcpy(&_speed, _iterator, sizeof _speed);
+    _iterator += sizeof _speed;
+    memcpy(&_isPlayer, _iterator, sizeof _isPlayer);
+    _iterator += sizeof _isPlayer;
+    memcpy(&_dead, _iterator, sizeof _dead);
+    _iterator += sizeof _dead;
+    memcpy(&_experience, _iterator, sizeof _experience);
+    _iterator += sizeof _experience;
+    memcpy(&_level, _iterator, sizeof _level);
+    _iterator += sizeof _level;
+
+    return new Player(_name, _health, _defense, _isPlayer, _experience, _level, _experience, _level);
+}
+
+
 
