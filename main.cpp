@@ -10,9 +10,9 @@ using namespace std;
 
 
 int main() {
-    Player *player = new Player("Victor", 1, 1, 0, 1);
-    Enemy *enemy = new Enemy("Goblin", 20, 5, 0, 7);
-    Enemy *enemy2 = new Enemy("Orc", 100, 8, 0, 2);
+    Player *player = new Player("Victor", 100000, 50, 0, 1222);
+    Enemy *enemy = new Enemy("Goblin", 5, 5, 0, 7);
+    Enemy *enemy2 = new Enemy("Orc", 10, 8, 0, 2);
 
     vector<Character*> participants;
     participants.push_back(player);

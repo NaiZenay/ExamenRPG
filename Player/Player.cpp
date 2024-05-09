@@ -78,6 +78,7 @@ void Player::levelUp() {
     level++;
     cout<<"Level Up!! , choose which statistics you are going to upload "<<"1) +10pts health"<<"2) +5pts attack"<<"3) +3pts speed "<<+"4) +2pts defense"<<endl;
     int option=0;
+    cin>>option;
     switch (option) {
         case 1:
             this->setHealth(this->health+10);
@@ -130,38 +131,38 @@ void Player::gainExperience(int exp) {
         case 5:
             if (experience >= 500) {
                 levelUp();
-                cout<<"Current exp: "<<experience<<endl;
             }
+            cout<<"Current exp: "<<experience<<endl;
             break;
         case 6:
             if (experience >= 600) {
                 levelUp();
-                cout<<"Current exp: "<<experience<<endl;
             }
+            cout<<"Current exp: "<<experience<<endl;
             break;
         case 7:
             if (experience >= 700) {
                 levelUp();
-                cout<<"Current exp: "<<experience<<endl;
             }
+            cout<<"Current exp: "<<experience<<endl;
             break;
         case 8:
             if (experience >= 800) {
                 levelUp();
-                cout<<"Current exp: "<<experience<<endl;
             }
+            cout<<"Current exp: "<<experience<<endl;
             break;
         case 9:
             if (experience >= 900) {
                 levelUp();
-                cout<<"Current exp: "<<experience<<endl;
             }
+            cout<<"Current exp: "<<experience<<endl;
             break;
         case 10:
             if (experience >= 1000) {
                 levelUp();
-                cout<<"Current exp: "<<experience<<endl;
             }
+            cout<<"Current exp: "<<experience<<endl;
             break;
     }
 

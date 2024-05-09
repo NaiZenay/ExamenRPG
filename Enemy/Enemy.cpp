@@ -97,3 +97,16 @@ void Enemy::flee(vector<Player *> players) {
 void Enemy::levelUp() {
 }
 
+Enemy::Enemy(const char *unnamed, int unnamed1, int unnamed2, int unnamed3, int unnamed4, bool unnamed5)
+        : Character(unnamed, unnamed1, unnamed2, unnamed3, unnamed4, unnamed5) {
+
+}
+
+void Enemy::powerUp(int powerUpHealth, int powerUpattack , int powerUpDefese, int powerUpSpeed) {
+    cout<<"Enemy gains power"<<endl;
+    this->attack+=powerUpattack;
+    this->defense+=powerUpDefese;
+    this->speed+=powerUpSpeed;
+    this->health+=powerUpHealth;
+}
+
