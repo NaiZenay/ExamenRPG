@@ -11,6 +11,7 @@ Character::Character(const char *_name, int _health, int _attack, int _defense, 
     defense = _defense;
     speed = _speed;
     isPlayer = _isPlayer;
+    level=1;
 }
 
 void Character::setName(const char * _name) {
@@ -84,3 +85,13 @@ int Character::getDamage() {
 void Character::setDamage(int damage) {
     this->damage += damage;
 }
+
+int Character::getLevel() const {
+    return level;
+}
+
+void Character::setLevel(int level) {
+    Character::level = level;
+}
+
+

@@ -23,6 +23,7 @@ private:
     vector<Enemy*> enemies;
     //Priority queue de acciones
     priority_queue<Action> actions;
+    int accumulatedExp=0;
 
     void prepareCombat();
 //    Character* getTarget(Character* target);
@@ -32,6 +33,8 @@ private:
     void checkParticipantStatus(Character* participant);
     void checkForFlee(Character* character);
     void checkWinner();
+    void accumulateExp(int exp);
+    int getEXP();
 public:
     Combat(vector<Character*> _participants);
     Combat(vector<Player*> _teamMembers, vector<Enemy*> _enemies);

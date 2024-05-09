@@ -16,7 +16,7 @@ class Enemy;
 class Player : public Character {
 protected:
     int experience;
-    int level;
+
 
 public:
     Player(const char *_name, int _health, int _attack, int _defense, int _speed);
@@ -27,6 +27,8 @@ public:
     void takeDamage(int damage) override;
 
     void die() override;
+
+    void levelUp() override;
 
     Character *getTarget(vector<Enemy *> enemies);
 
@@ -39,7 +41,7 @@ public:
 
     void emote();
 
-    void levelUp();
+
 
     void gainExperience(int);
 

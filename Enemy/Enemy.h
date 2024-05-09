@@ -26,6 +26,8 @@ public:
 
     void die() override;
 
+    void levelUp() override;
+
     void flee(vector<Player *> players);
 
     Character *getTarget(vector<Player *> teamMembers);

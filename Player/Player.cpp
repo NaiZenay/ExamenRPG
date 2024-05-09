@@ -16,12 +16,15 @@ bool compareSpeed(Enemy *a, Enemy *b) {
     return a->getSpeed() > b->getSpeed();
 }
 
-Player::Player(const char * name, int health, int attack, int defense, int speed) : Character(name, health, attack, defense,
-                                                                                        speed, true) {
+Player::Player(const char *name, int health, int attack, int defense, int speed) : Character(name, health, attack,
+                                                                                             defense,
+                                                                                             speed, true) {
     experience = 0;
     level = 1;
 }
-Player::Player(const char * name, int health, int attack, int defense, int speed,bool isPlayer,int _exp,int _level) : Character(name, health, attack, defense,speed, true) {
+
+Player::Player(const char *name, int health, int attack, int defense, int speed, bool isPlayer, int _exp, int _level)
+        : Character(name, health, attack, defense, speed, true) {
     experience = _exp;
     level = _level;
 }
@@ -33,7 +36,7 @@ void Player::doAttack(Character *target) {
 }
 
 void Player::die() {
-    cout << this->getName()<<" die" << endl;
+    cout << this->getName() << " die" << endl;
     this->dead = true;
 }
 
@@ -60,31 +63,108 @@ void Player::flee(vector<Enemy *> enemies) {
     }
 
     //Aqui termina el programa
-    if (!fleed){
-        cout<<"U didnt flee"<<endl;
-    }else{
+    if (!fleed) {
+        cout << "U didnt flee" << endl;
+    } else {
         this->setCoward(fleed);
     }
 }
 
 void Player::emote() {
-    cout << this->getName()<<" Jokes on you" << endl;
+    cout << this->getName() << " Jokes on you" << endl;
 }
 
 void Player::levelUp() {
     level++;
-    setHealth(getHealth() + 10);
-    setAttack(getAttack() + 5);
-    setDefense(getDefense() + 5);
-    setSpeed(getSpeed() + 5);
+    cout<<"Level Up!! , choose which statistics you are going to upload "<<"1) +10pts health"<<"2) +5pts attack"<<"3) +3pts speed "<<+"4) +2pts defense"<<endl;
+    int option=0;
+    switch (option) {
+        case 1:
+            this->setHealth(this->health+10);
+            cout<<"Now you have"<< health<<"health pts"<<endl;
+            break;
+        case 2:
+            this->setAttack(this->attack+5);
+            cout<<"Now you have"<< attack<<"atk pts"<<endl;
+            break;
+        case 3:
+            this->setSpeed(this->speed+3);
+            cout<<"Now you have"<< speed<<"speed pts"<<endl;
+            break;
+        case 4:
+            this->setDefense(this->defense+2);
+            cout<<"Now you have"<< defense<<"defense pts"<<endl;
+            break;
+        default:
+            cout<<"Invalid option"<< "+10 pts health"<<endl;
+    }
 }
 
 void Player::gainExperience(int exp) {
     experience += exp;
-    if (experience >= 100) {
-        levelUp();
-        experience = 0;
+    switch (this->level) {
+        case 1:
+            if (experience >= 100) {
+                levelUp();
+            }
+            cout<<"Current exp: "<<experience<<endl;
+            break;
+        case 2:
+            if (experience >= 200) {
+                levelUp();
+            }
+            cout<<"Current exp: "<<experience<<endl;
+            break;
+        case 3:
+            if (experience >= 300) {
+                levelUp();
+            }
+            cout<<"Current exp: "<<experience<<endl;
+            break;
+        case 4:
+            if (experience >= 400) {
+                levelUp();
+            }
+            cout<<"Current exp: "<<experience<<endl;
+            break;
+        case 5:
+            if (experience >= 500) {
+                levelUp();
+                cout<<"Current exp: "<<experience<<endl;
+            }
+            break;
+        case 6:
+            if (experience >= 600) {
+                levelUp();
+                cout<<"Current exp: "<<experience<<endl;
+            }
+            break;
+        case 7:
+            if (experience >= 700) {
+                levelUp();
+                cout<<"Current exp: "<<experience<<endl;
+            }
+            break;
+        case 8:
+            if (experience >= 800) {
+                levelUp();
+                cout<<"Current exp: "<<experience<<endl;
+            }
+            break;
+        case 9:
+            if (experience >= 900) {
+                levelUp();
+                cout<<"Current exp: "<<experience<<endl;
+            }
+            break;
+        case 10:
+            if (experience >= 1000) {
+                levelUp();
+                cout<<"Current exp: "<<experience<<endl;
+            }
+            break;
     }
+
 }
 
 Character *Player::getTarget(vector<Enemy *> enemies) {
@@ -120,7 +200,7 @@ Action Player::takeAction(vector<Enemy *> enemies) {
             break;
 
         case 2:
-            myAction.action = [this,enemies]() {
+            myAction.action = [this, enemies]() {
                 flee(enemies);
             };
             break;
@@ -133,30 +213,30 @@ Action Player::takeAction(vector<Enemy *> enemies) {
 }
 
 char *Player::serialize() {
-    char* iterator=buffer;
-    memcpy(iterator,&name, sizeof name);
+    char *iterator = buffer;
+    memcpy(iterator, &name, sizeof name);
     iterator += sizeof name;
     memcpy(iterator, &health, sizeof health);
     iterator += sizeof health;
-    memcpy(iterator,&attack, sizeof attack);
+    memcpy(iterator, &attack, sizeof attack);
     iterator += sizeof attack;
     memcpy(iterator, &defense, sizeof defense);
     iterator += sizeof defense;
-    memcpy(iterator,&speed, sizeof speed);
+    memcpy(iterator, &speed, sizeof speed);
     iterator += sizeof speed;
     memcpy(iterator, &isPlayer, sizeof isPlayer);
     iterator += sizeof isPlayer;
-    memcpy(iterator,&dead, sizeof dead);
+    memcpy(iterator, &dead, sizeof dead);
     iterator += sizeof dead;
     memcpy(iterator, &experience, sizeof experience);
     iterator += sizeof experience;
-    memcpy(iterator,&level, sizeof level);
+    memcpy(iterator, &level, sizeof level);
     iterator += sizeof level;
-
+    return buffer;
 }
 
 Player *Player::unserialize(char *_buffer) {
-    char* _iterator =_buffer;
+    char *_iterator = _buffer;
     char _name[20];
     int _health;
     int _attack;

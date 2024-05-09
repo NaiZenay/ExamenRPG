@@ -23,6 +23,7 @@ protected:
     bool dead;
     bool coward=false;
     int damage=0;
+    int level;
 public:
     Character(const char *, int, int, int, int, bool);
 
@@ -31,6 +32,12 @@ public:
     virtual void takeDamage(int damage) = 0;
 
     virtual void die() = 0;
+
+    virtual void levelUp()=0;
+
+    int getLevel() const;
+
+    void setLevel(int level);
 
     void setName(const char *);
 
@@ -67,6 +74,7 @@ public:
     int getDamage();
 
     void setDamage(int damage);
+
 };
 
 

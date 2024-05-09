@@ -94,3 +94,6 @@ void Enemy::flee(vector<Player *> players) {
     this->setCoward(fleed);
 }
 
+void Enemy::levelUp() {
+}
+
