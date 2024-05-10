@@ -82,26 +82,26 @@ void Player::levelUp() {
     switch (option) {
         case 1:
             this->setHealth(this->health+10);
-            cout<<"Now you have "<< health<<"health pts"<<endl;
+            cout<<"Now you have "<< health<<" health pts"<<endl;
             cout<<"Current exp: "<<experience<<endl;
             break;
         case 2:
             this->setAttack(this->attack+5);
-            cout<<"Now you have "<< attack<<"atk pts"<<endl;
+            cout<<"Now you have "<< attack<<" atk pts"<<endl;
             cout<<"Current exp: "<<experience<<endl;
             break;
         case 3:
             this->setSpeed(this->speed+3);
-            cout<<"Now you have "<< speed<<"speed pts"<<endl;
+            cout<<"Now you have "<< speed<<" speed pts"<<endl;
             cout<<"Current exp: "<<experience<<endl;
             break;
         case 4:
             this->setDefense(this->defense+2);
-            cout<<"Now you have "<< defense<<"defense pts"<<endl;
+            cout<<"Now you have "<< defense<<" defense pts"<<endl;
             cout<<"Current exp: "<<experience<<endl;
             break;
         default:
-            cout<<"Invalid option "<< "+10 pts health"<<endl;
+            cout<<"Invalid option +10 pts health"<<endl;
             cout<<"Current exp: "<<experience<<endl;
             break;
     }
