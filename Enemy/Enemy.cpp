@@ -143,7 +143,7 @@ void Enemy::levelUp() {
     this->attack+=5;
     this->defense+=3;
     this->speed+=1;
-    cout<<"health: "<<health<<" atk: "<<attack<< " defense: "<<defense<<" speed :"<< speed<<endl;
+    cout<<"Enemy Stats\nhealth: "<<health<<" atk: "<<attack<< " defense: "<<defense<<" speed :"<< speed<<endl;
 }
 
 

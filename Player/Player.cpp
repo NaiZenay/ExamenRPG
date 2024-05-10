@@ -82,90 +82,54 @@ void Player::levelUp() {
     switch (option) {
         case 1:
             this->setHealth(this->health+10);
-            cout<<"Now you have"<< health<<"health pts"<<endl;
+            cout<<"Now you have "<< health<<"health pts"<<endl;
+            cout<<"Current exp: "<<experience<<endl;
             break;
         case 2:
             this->setAttack(this->attack+5);
-            cout<<"Now you have"<< attack<<"atk pts"<<endl;
+            cout<<"Now you have "<< attack<<"atk pts"<<endl;
+            cout<<"Current exp: "<<experience<<endl;
             break;
         case 3:
             this->setSpeed(this->speed+3);
-            cout<<"Now you have"<< speed<<"speed pts"<<endl;
+            cout<<"Now you have "<< speed<<"speed pts"<<endl;
+            cout<<"Current exp: "<<experience<<endl;
             break;
         case 4:
             this->setDefense(this->defense+2);
-            cout<<"Now you have"<< defense<<"defense pts"<<endl;
+            cout<<"Now you have "<< defense<<"defense pts"<<endl;
+            cout<<"Current exp: "<<experience<<endl;
             break;
         default:
-            cout<<"Invalid option"<< "+10 pts health"<<endl;
+            cout<<"Invalid option "<< "+10 pts health"<<endl;
+            cout<<"Current exp: "<<experience<<endl;
+            break;
     }
 }
 
 void Player::gainExperience(int exp) {
     experience += exp;
-    switch (this->level) {
-        case 1:
-            if (experience >= 100) {
-                levelUp();
-            }
-            cout<<"Current exp: "<<experience<<endl;
-            break;
-        case 2:
-            if (experience >= 200) {
-                levelUp();
-            }
-            cout<<"Current exp: "<<experience<<endl;
-            break;
-        case 3:
-            if (experience >= 300) {
-                levelUp();
-            }
-            cout<<"Current exp: "<<experience<<endl;
-            break;
-        case 4:
-            if (experience >= 400) {
-                levelUp();
-            }
-            cout<<"Current exp: "<<experience<<endl;
-            break;
-        case 5:
-            if (experience >= 500) {
-                levelUp();
-            }
-            cout<<"Current exp: "<<experience<<endl;
-            break;
-        case 6:
-            if (experience >= 600) {
-                levelUp();
-            }
-            cout<<"Current exp: "<<experience<<endl;
-            break;
-        case 7:
-            if (experience >= 700) {
-                levelUp();
-            }
-            cout<<"Current exp: "<<experience<<endl;
-            break;
-        case 8:
-            if (experience >= 800) {
-                levelUp();
-            }
-            cout<<"Current exp: "<<experience<<endl;
-            break;
-        case 9:
-            if (experience >= 900) {
-                levelUp();
-            }
-            cout<<"Current exp: "<<experience<<endl;
-            break;
-        case 10:
-            if (experience >= 1000) {
-                levelUp();
-            }
-            cout<<"Current exp: "<<experience<<endl;
-            break;
+    if (experience>=100 && experience<200){
+        levelUp();
+    } else if (experience>=200 && experience<300){
+        levelUp();
+    }else if (experience>=300 && experience<400){
+        levelUp();
+    }else if (experience>=400 && experience<500){
+        levelUp();
+    }else if (experience>=500 && experience<600){
+        levelUp();
+    }else if (experience>=600 && experience<700){
+        levelUp();
+    }else if (experience>=700 && experience<800){
+        levelUp();
+    }else if (experience>=800 && experience<900){
+        levelUp();
+    }else if (experience>=900 && experience<1000){
+        levelUp();
+    } else{
+        cout<<"Current exp: "<<experience<<endl;
     }
-
 }
 
 Character *Player::getTarget(vector<Enemy *> enemies) {

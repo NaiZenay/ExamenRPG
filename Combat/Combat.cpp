@@ -116,7 +116,7 @@ void Combat::checkParticipantStatus(Character *participant) {
         if (participant->getIsPlayer()) {
             teamMembers.erase(remove(teamMembers.begin(), teamMembers.end(), participant), teamMembers.end());
         } else {
-            this->accumulateExp(10000);
+            this->accumulateExp(26);
             enemies.erase(remove(enemies.begin(), enemies.end(), participant), enemies.end());
         }
         participants.erase(remove(participants.begin(), participants.end(), participant), participants.end());
