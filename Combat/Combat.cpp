@@ -57,18 +57,20 @@ void Combat::doCombat() {
 
 void Combat::checkWinner() {
     //No se imprime el nombre del ganador
-    cout <<"\nThe Winner is:\n"<<endl;
+    cout << "\nThe Winner is:\n" << endl;
     if (enemies.size() == 0) {
         for (auto teamMember: teamMembers) {
             cout << teamMember->toString() << endl;
             teamMember->emote();
             teamMember->gainExperience(this->getEXP());
+            combatMenu();
         }
     } else {
         for (auto enemy: enemies) {
-            cout <<enemy->toString() << endl;
+            cout << enemy->toString() << endl;
         }
         cout << "The enemies have won the combat - Game Over" << endl;
+        combatMenu();
     }
 }
 
@@ -114,7 +116,7 @@ void Combat::checkParticipantStatus(Character *participant) {
         if (participant->getIsPlayer()) {
             teamMembers.erase(remove(teamMembers.begin(), teamMembers.end(), participant), teamMembers.end());
         } else {
-            this->accumulateExp(20);
+            this->accumulateExp(10000);
             enemies.erase(remove(enemies.begin(), enemies.end(), participant), enemies.end());
         }
         participants.erase(remove(participants.begin(), participants.end(), participant), participants.end());
@@ -136,10 +138,39 @@ void Combat::checkForFlee(Character *character) {
 }
 
 void Combat::accumulateExp(int exp) {
-    this->accumulatedExp+=exp;
+    this->accumulatedExp += exp;
 }
 
 int Combat::getEXP() {
     return accumulatedExp;
 }
+
+void Combat::combatMenu() {
+    cout << "Do you want to do it again, It will be harder?? \n"<<"1)Yes \n"<<"2)NO thanks\n"  << endl;
+    int option = 0;
+    cin >> option;
+    Enemy *enemy= nullptr;
+    switch (option) {
+        case 1:
+            //Crear funcion que genere un enemigo
+            enemy= new Enemy("Skeleton", 5, 5, 0, 7);
+            //Revisa el nivel del jugador
+            enemy->checkPlayerLevel(teamMembers);
+            //añade el jugador al vector de participantes
+            addParticipant(enemy);
+            //ordena segun velocidad
+            prepareCombat();
+            //inicia combate
+            doCombat();
+            break;
+        case 2:
+            cout<<"bye, pssy"<<endl;
+            break;
+        default:
+            cout<<"fk u .|."<<endl;
+            break;
+    }
+}
+
+
 

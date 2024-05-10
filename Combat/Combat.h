@@ -41,6 +41,7 @@ public:
     Combat();
     void addParticipant(Character *participant);
     void doCombat();
+    void combatMenu();
     string participantsToString();
 };
 

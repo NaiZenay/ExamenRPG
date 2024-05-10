@@ -94,19 +94,56 @@ void Enemy::flee(vector<Player *> players) {
     this->setCoward(fleed);
 }
 
-void Enemy::levelUp() {
-}
 
 Enemy::Enemy(const char *unnamed, int unnamed1, int unnamed2, int unnamed3, int unnamed4, bool unnamed5)
         : Character(unnamed, unnamed1, unnamed2, unnamed3, unnamed4, unnamed5) {
 
 }
 
-void Enemy::powerUp(int powerUpHealth, int powerUpattack , int powerUpDefese, int powerUpSpeed) {
-    cout<<"Enemy gains power"<<endl;
-    this->attack+=powerUpattack;
-    this->defense+=powerUpDefese;
-    this->speed+=powerUpSpeed;
-    this->health+=powerUpHealth;
+void Enemy::checkPlayerLevel(vector<Player *> teamMembers) {
+    switch (teamMembers[0]->getLevel()) {
+        case 1:
+            levelUp();
+            break;
+        case 2:
+            levelUp();
+            break;
+        case 3:
+            levelUp();
+            break;
+        case 4:
+            levelUp();
+            break;
+        case 5:
+            levelUp();
+            break;
+        case 6:
+            levelUp();
+            break;
+        case 7:
+            levelUp();
+            break;
+        case 8:
+            levelUp();
+            break;
+        case 9:
+            levelUp();
+            break;
+        case 10:
+            levelUp();
+            break;
+        default:
+            cout<<"fk u alex"<<endl;
+            break;
+    }
 }
+
+void Enemy::levelUp() {
+    this->health+=15;
+    this->attack+=5;
+    this->defense+=3;
+    this->speed+=1;
+    cout<<"health: "<<health<<" atk: "<<attack<< " defense: "<<defense<<" speed :"<< speed<<endl;
+}
+
 

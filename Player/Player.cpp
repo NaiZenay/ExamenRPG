@@ -76,7 +76,7 @@ void Player::emote() {
 
 void Player::levelUp() {
     level++;
-    cout<<"Level Up!! , choose which statistics you are going to upload "<<"1) +10pts health"<<"2) +5pts attack"<<"3) +3pts speed "<<+"4) +2pts defense"<<endl;
+    cout<<"Level Up!! , choose which statistics you are going to upload\n "<<"1) +10pts health\n"<<"2) +5pts attack\n"<<"3) +3pts speed\n"<<+"4) +2pts defense\n"<<endl;
     int option=0;
     cin>>option;
     switch (option) {

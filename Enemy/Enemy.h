@@ -20,12 +20,13 @@ public:
     Enemy(const char *unnamed, int unnamed1, int unnamed2, int unnamed3, int unnamed4, bool unnamed5);
 
 public:
-    void powerUp(int powerUpHealth, int powerUpattack , int powerUpDefese, int powerUpSpeed);
     void doAttack(Character *target) override;
 
     void takeDamage(int damage) override;
 
     void die() override;
+
+    void checkPlayerLevel(vector<Player *> teamMembers);
 
     void levelUp() override;
 

@@ -7,8 +7,6 @@
 using namespace std;
 
 //Jugador no huye cuando es mas lento q los enemigos(el programa termina)
-
-
 int main() {
     Player *player = new Player("Victor", 100000, 50, 0, 1222);
     Enemy *enemy = new Enemy("Goblin", 5, 5, 0, 7);
